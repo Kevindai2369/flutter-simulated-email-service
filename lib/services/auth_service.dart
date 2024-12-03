@@ -3,8 +3,28 @@ import 'package:firebase_auth/firebase_auth.dart';
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  Future<User?> loginWithPhone(String phone, String otp) async {
-    // Implement OTP verification here
+  Future<void> loginWithPhone(String phone, Function(String) onCodeSent) async {
+    await _auth.verifyPhoneNumber(
+      phoneNumber: phone,
+      verificationCompleted: (credential) async {
+        await _auth.signInWithCredential(credential);
+      },
+      verificationFailed: (exception) {
+        throw Exception(exception.message);
+      },
+      codeSent: (verificationId, resendToken) {
+        onCodeSent(verificationId);
+      },
+      codeAutoRetrievalTimeout: (verificationId) {},
+    );
+  }
+
+  Future<void> verifyOtp(String verificationId, String otp) async {
+    final credential = PhoneAuthProvider.credential(
+      verificationId: verificationId,
+      smsCode: otp,
+    );
+    await _auth.signInWithCredential(credential);
   }
 
   Future<void> logout() async {

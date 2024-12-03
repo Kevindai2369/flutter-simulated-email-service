@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
+import '../models/email_model.dart';
 
 class EmailCard extends StatelessWidget {
-  final String subject;
-  final String sender;
+  final EmailModel email;
 
-  EmailCard({required this.subject, required this.sender});
+  const EmailCard({required this.email});
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        title: Text(subject),
-        subtitle: Text(sender),
-        trailing: Icon(Icons.star_border),
+        title: Text(email.subject),
+        subtitle: Text(email.sender),
+        trailing: email.isRead ? null : Icon(Icons.mark_email_unread),
+        onTap: () {
+          // Navigate to email details
+        },
       ),
     );
   }
 }
+

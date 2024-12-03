@@ -6,7 +6,6 @@ class EmailModel {
   final String body;
   final DateTime timestamp;
   final bool isRead;
-  final List<String> attachments;
 
   EmailModel({
     required this.id,
@@ -16,7 +15,6 @@ class EmailModel {
     required this.body,
     required this.timestamp,
     this.isRead = false,
-    this.attachments = const [],
   });
 
   factory EmailModel.fromJson(Map<String, dynamic> json) {
@@ -28,7 +26,6 @@ class EmailModel {
       body: json['body'],
       timestamp: DateTime.parse(json['timestamp']),
       isRead: json['isRead'],
-      attachments: List<String>.from(json['attachments']),
     );
   }
 
@@ -40,6 +37,5 @@ class EmailModel {
         'body': body,
         'timestamp': timestamp.toIso8601String(),
         'isRead': isRead,
-        'attachments': attachments,
       };
 }

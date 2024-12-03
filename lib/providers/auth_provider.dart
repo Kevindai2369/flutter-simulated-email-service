@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import '../services/auth_service.dart';
 
 class AuthProvider with ChangeNotifier {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  User? _user;
+  final AuthService _authService = AuthService();
+  bool isLoggedIn = false;
 
-  User? get user => _user;
+  Future<void> loginWithPhone(String phone, Function(String) onCodeSent) async {
+    await _authService.loginWithPhone(phone, onCodeSent);
+  }
 
-  Future<void> loginWithPhone(String phoneNumber, String otp) async {
-    // Simulate login process here
-    // For example, Firebase OTP verification
+  Future<void> verifyOtp(String verificationId, String otp) async {
+    await _authService.verifyOtp(verificationId, otp);
+    isLoggedIn = true;
     notifyListeners();
   }
 
   Future<void> logout() async {
-    await _auth.signOut();
-    _user = null;
+    await _authService.logout();
+    isLoggedIn = false;
     notifyListeners();
   }
 }

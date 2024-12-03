@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "729364660276",
+    "project_id": "stimulate-email-service-app",
+    "storage_bucket": "stimulate-email-service-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:729364660276:android:55e55e09e1e6268889ca61",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc-vQLBBEO8deiVQL3mk3kVEDU0__dQfA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

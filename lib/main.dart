@@ -23,6 +23,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -59,7 +61,7 @@ class MyApp extends StatelessWidget {
         '/profile': (context) => ProfileScreen(),
         '/profile_picture': (context) => ProfilePictureScreen(),
         '/new_email_notification': (context) => NewEmailNotificationScreen(
-              sender: 'John Doe',
+              sender: 'Kevin Dai',
               subject: 'Welcome to our service',
             ),
       },

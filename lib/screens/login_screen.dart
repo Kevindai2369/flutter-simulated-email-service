@@ -44,9 +44,9 @@ class LoginScreen extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/reset-password');
+                  Navigator.pushNamed(context, '/forgot-password'); // Updated route
                 },
-                child: const Text('Forgot Password?'),
+                child: const Text('Forgot Password?'), // Corrected text
               ),
             ],
           ),

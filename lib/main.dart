@@ -1,5 +1,6 @@
 import 'package:email_app/screens/change_password_screen.dart';
 import 'package:email_app/screens/compose_email_screen.dart';
+import 'package:email_app/screens/forgot_password_screen.dart';
 import 'package:email_app/screens/inbox_screen.dart';
 import 'package:email_app/screens/reset_password_screen.dart';
 import 'package:email_app/screens/settings_screen.dart';
@@ -39,7 +40,8 @@ class EmailApp extends StatelessWidget {
           ModalRoute.of(context)!.settings.arguments as String;
           return VerifyCodeScreen(verificationId: verificationId);
         },
-        '/profile': (context) => const ProfileScreen(),  // Added the Profile route
+        '/profile': (context) => const ProfileScreen(),
+        '/forgot-password': (context) => ForgotPasswordScreen(),
       },
     );
   }

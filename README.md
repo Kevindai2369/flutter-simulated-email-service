@@ -13,6 +13,7 @@ After that, replace the necessary code file to the new lib directory.
 
 Also download and replace android directory , pubspec.yaml to the new project.
 
+https://github.com/Kevindai2369/email_app
 
 
 
